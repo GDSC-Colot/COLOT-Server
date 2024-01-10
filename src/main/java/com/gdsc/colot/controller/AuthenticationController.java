@@ -36,6 +36,7 @@ import java.security.SecureRandom;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/api/v1")
 public class AuthenticationController {
 
     private final UserService userService;

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@Table(name = "TBL_USER")
+@Table(name = "USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseEntity {
 
@@ -37,7 +37,7 @@ public class User extends BaseEntity {
     private UserType type;
 
     @ElementCollection(targetClass = AuthorityType.class)
-    @CollectionTable(name = "TBL_USER_AUTHORITY", joinColumns = @JoinColumn(name = "USER_ID"))
+    @CollectionTable(name = "USER_AUTHORITY", joinColumns = @JoinColumn(name = "USER_ID"))
     @Enumerated(EnumType.STRING)
     private List<AuthorityType> authorities = new ArrayList<>();
 

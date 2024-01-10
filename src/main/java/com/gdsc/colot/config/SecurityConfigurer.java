@@ -45,8 +45,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .httpBasic().disable() // HTTP Basic 인증 비활성화(지금 사용 안 함)
                 .authorizeRequests() // URL 별 권한 관리를 설정하는 옵션의 시작점
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()// OPTIONS 메소드는 모두 허용
-                .antMatchers("/oauth2/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/authorize","/users").anonymous()
+                .antMatchers("/api/v1/oauth2/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/authorize","/api/v1/users").anonymous()
                 .anyRequest().authenticated().and() // 나머지 URI는 인증 필요
                 .exceptionHandling()
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)); // 인증 실패시 401 응답
