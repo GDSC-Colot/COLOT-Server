@@ -18,6 +18,7 @@ import com.gdsc.colot.service.oauth2.OAuth2Service;
 import com.gdsc.colot.service.oauth2.OAuth2ServiceFactory;
 import com.gdsc.colot.service.user.UserService;
 import com.gdsc.colot.domain.user.User;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -46,6 +47,7 @@ public class AuthenticationController {
     private final UserRepository userRepository;
     private final RestTemplate restTemplate = new RestTemplate();
 
+    @ApiOperation(value = "일반 로그인", notes = "로그인이 진행된다.")
     @PostMapping("/authorize")
     public BaseResponse<SignInResponseDto> authenticateUsernamePassword(@Valid @RequestBody AuthorizationRequestDto authorizationRequestDto) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authorizationRequestDto.getUsername(), authorizationRequestDto.getPassword()));
