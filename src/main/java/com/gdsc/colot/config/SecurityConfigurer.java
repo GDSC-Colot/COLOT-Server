@@ -50,7 +50,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/webjars/**",
                         "/swagger-resources/**",
                         "/v2/api-docs",
-                        "/profile"
+                        "/profile",
+                        "/"
                 ).permitAll()
                 .antMatchers("/api/v1/oauth2/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/v1/authorize","/api/v1/users").anonymous()
