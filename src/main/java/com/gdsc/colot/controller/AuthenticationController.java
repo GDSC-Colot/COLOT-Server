@@ -27,6 +27,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -71,6 +72,7 @@ public class AuthenticationController {
         oAuth2Service.redirectAuthorizePage(clientRegistration, state, response);
     }
 
+    @ApiIgnore
     @RequestMapping("/oauth2/callback/{provider}")
     public BaseResponse<SignInResponseDto> oAuth2AuthenticationCallback(@PathVariable String provider, OAuth2AuthorizationResponseDto oAuth2AuthorizationResponseDto, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
