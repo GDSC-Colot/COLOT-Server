@@ -47,7 +47,7 @@ public class AuthenticationController {
     private final UserRepository userRepository;
     private final RestTemplate restTemplate = new RestTemplate();
 
-    @ApiOperation(value = "일반 로그인", notes = "로그인이 진행된다.")
+    @ApiOperation(value = "일반 로그인", notes = "일반 로그인이 진행된다.")
     @PostMapping("/authorize")
     public BaseResponse<SignInResponseDto> authenticateUsernamePassword(@Valid @RequestBody AuthorizationRequestDto authorizationRequestDto) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authorizationRequestDto.getUsername(), authorizationRequestDto.getPassword()));
@@ -62,6 +62,7 @@ public class AuthenticationController {
         return BaseResponse.success(SuccessCode.LOGIN_SUCCESS, data);
     }
 
+    @ApiOperation(value = "소셜 로그인", notes = "소셜 로그인이 진행된다.")
     @GetMapping("/oauth2/authorize/{provider}")
     public void redirectSocialAuthorizationPage(@PathVariable String provider, HttpServletRequest request, HttpServletResponse response) throws  Exception {
         String state = generateState();

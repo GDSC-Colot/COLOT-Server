@@ -16,12 +16,12 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1")
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping
+    @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public BaseResponse signUpNewUser(@RequestBody @Valid SignUpRequestDto signUpRequestDto) {
         userService.saveUser(signUpRequestDto);
