@@ -4,7 +4,7 @@ ABSPATH=$(readlink -f $0)
 ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
 
-REPOSITORY=/home/ec2-user/app/
+REPOSITORY=/home/ec2-user/app
 
 echo "> Build 파일을 복사합니다."
 
