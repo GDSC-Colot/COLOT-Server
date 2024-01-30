@@ -1,7 +1,9 @@
 package com.gdsc.colot.security;
 
 import com.gdsc.colot.domain.user.User;
-import com.gdsc.colot.repository.UserRepository;
+import com.gdsc.colot.domain.user.UserRepository;
+import com.gdsc.colot.exception.ErrorCode;
+import com.gdsc.colot.exception.model.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(
-                () -> new UsernameNotFoundException("등록되지 않은 회원입니다.")
+                () -> new UsernameNotFoundException("사용자 인증에 실패했습니다")
         );
 
         UserDetailsImpl userDetails = UserDetailsImpl.builder()

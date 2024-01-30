@@ -1,4 +1,4 @@
-package com.gdsc.colot.repository;
+package com.gdsc.colot.domain.user;
 
 import com.gdsc.colot.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;

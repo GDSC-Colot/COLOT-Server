@@ -13,7 +13,7 @@ import com.gdsc.colot.oauth2.ClientRegistration;
 import com.gdsc.colot.oauth2.ClientRegistrationRepository;
 import com.gdsc.colot.oauth2.OAuth2Token;
 import com.gdsc.colot.oauth2.userInfo.OAuth2UserInfo;
-import com.gdsc.colot.repository.UserRepository;
+import com.gdsc.colot.domain.user.UserRepository;
 import com.gdsc.colot.service.oauth2.OAuth2Service;
 import com.gdsc.colot.service.oauth2.OAuth2ServiceFactory;
 import com.gdsc.colot.service.user.UserService;

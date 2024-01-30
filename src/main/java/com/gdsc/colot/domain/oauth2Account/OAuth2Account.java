@@ -1,6 +1,7 @@
-package com.gdsc.colot.domain;
+package com.gdsc.colot.domain.oauth2Account;
 
 import com.gdsc.colot.controller.dto.OAuth2AccountDto;
+import com.gdsc.colot.domain.BaseEntity;
 import com.gdsc.colot.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Builder;

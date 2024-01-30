@@ -1,6 +1,6 @@
-package com.gdsc.colot.repository;
+package com.gdsc.colot.domain.oauth2Account;
 
-import com.gdsc.colot.domain.OAuth2Account;
+import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,7 +1,8 @@
 package com.gdsc.colot.domain.user;
 
 import com.gdsc.colot.domain.BaseEntity;
-import com.gdsc.colot.domain.OAuth2Account;
+import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
+import com.gdsc.colot.domain.car.Car;
 import com.gdsc.colot.security.AuthorityType;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -45,6 +46,10 @@ public class User extends BaseEntity {
     @JoinColumn(name = "SOCIAL_ID")
     private OAuth2Account social;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "REP_CAR_ID")
+    private Car repCar;
+
     @Builder
     public User(String name, String email, String username, String password, UserType type) {
         this.name = name;
@@ -79,5 +84,10 @@ public class User extends BaseEntity {
     public void unlinkSocial() {
         this.social.unlinkUser();
         this.social = null;
+    }
+
+    public void linkRepCar(Car repCar) {
+        this.repCar = repCar;
+        repCar.linkUser4Rep(this);
     }
 }

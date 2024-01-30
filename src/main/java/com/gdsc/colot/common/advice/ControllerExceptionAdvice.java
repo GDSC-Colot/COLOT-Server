@@ -3,12 +3,10 @@ package com.gdsc.colot.common.advice;
 import com.gdsc.colot.common.dto.BaseResponse;
 import com.gdsc.colot.exception.ErrorCode;
 import com.gdsc.colot.exception.model.CustomException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
@@ -25,14 +24,12 @@ import java.util.Objects;
 
 @Slf4j
 @RestControllerAdvice
-@Component
-@RequiredArgsConstructor
+@RestController
 public class ControllerExceptionAdvice {
 
     /**
      * 400 BAD_REQUEST
      */
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected BaseResponse handleMethodArgumentNotValidException(final MethodArgumentNotValidException e) {
@@ -62,22 +59,28 @@ public class ControllerExceptionAdvice {
         return BaseResponse.error(ErrorCode.REQUEST_METHOD_VALIDATION_EXCEPTION, e.getMessage());
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    /**
+     * 401 UNAUTHORIZED
+     */
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(BadCredentialsException.class)
     protected BaseResponse badCredentialsException(final BadCredentialsException e) {
         log.error("Bad Credentials: {}", e.getMessage(), e);
         return BaseResponse.error(ErrorCode.AUTHORIZE_FAILED_EXCEPTION, ErrorCode.AUTHORIZE_FAILED_EXCEPTION.getMessage());
     }
 
-    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    /**
+     * 413 PAYLOAD_TOO_LARGE
+     */
     @ResponseStatus(HttpStatus.PAYLOAD_TOO_LARGE)
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
     public BaseResponse fileSizeLimitExceeded(final MaxUploadSizeExceededException e) {
         log.error("File Size Limit Exceeded: {}", e.getMessage(), e);
         return BaseResponse.error(ErrorCode.MAX_UPLOAD_SIZE_EXCEED_EXCEPTION, e.getMessage());
     }
 
     /**
-     * 500 Internal Server Error
+     * 500 INTERNAL_SERVER_ERROR
      */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
@@ -85,12 +88,13 @@ public class ControllerExceptionAdvice {
         log.error("Internal Server Error: {}", e.getMessage(), e);
         return BaseResponse.error(ErrorCode.INTERNAL_SERVER_ERROR);
     }
+
     /**
      * custom error
      */
     @ExceptionHandler(CustomException.class)
     protected ResponseEntity<BaseResponse> handleGroomException(CustomException e) {
-        log.error("CustomException: {}", e.getMessage(), e);
+        log.error("Custom Exception: {}", e.getMessage(), e);
         return ResponseEntity.status(e.getHttpStatus())
                 .body(BaseResponse.error(e.getErrorCode(), e.getMessage()));
     }

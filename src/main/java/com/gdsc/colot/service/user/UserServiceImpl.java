@@ -1,15 +1,15 @@
 package com.gdsc.colot.service.user;
 
 import com.gdsc.colot.controller.dto.request.SignUpRequestDto;
-import com.gdsc.colot.domain.OAuth2Account;
+import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
 import com.gdsc.colot.domain.user.User;
 import com.gdsc.colot.domain.user.UserType;
 import com.gdsc.colot.exception.ErrorCode;
 import com.gdsc.colot.exception.model.DuplicateUserException;
 import com.gdsc.colot.oauth2.OAuth2Token;
 import com.gdsc.colot.oauth2.userInfo.OAuth2UserInfo;
-import com.gdsc.colot.repository.OAuth2AccountRepository;
-import com.gdsc.colot.repository.UserRepository;
+import com.gdsc.colot.domain.oauth2Account.OAuth2AccountRepository;
+import com.gdsc.colot.domain.user.UserRepository;
 import com.gdsc.colot.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
