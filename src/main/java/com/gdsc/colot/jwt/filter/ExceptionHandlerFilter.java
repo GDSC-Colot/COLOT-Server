@@ -34,9 +34,6 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
         } catch (SignatureException e) {
             log.error("JWT 토큰 형식 이상: {}", e.getMessage(), e);
             setErrorResponse(response, ErrorCode.TOKEN_SIGNATURE_INVALID_EXCEPTION);
-        } catch (Exception e) {
-            log.error("Internal Server Error: {}", e.getMessage(), e);
-            setErrorResponse(response, ErrorCode.INTERNAL_SERVER_ERROR);
         }
 
     }

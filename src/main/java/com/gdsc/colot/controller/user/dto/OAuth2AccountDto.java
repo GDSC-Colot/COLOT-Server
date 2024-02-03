@@ -1,4 +1,4 @@
-package com.gdsc.colot.controller.dto;
+package com.gdsc.colot.controller.user.dto;
 
 import com.gdsc.colot.oauth2.OAuth2Token;
 import lombok.Builder;

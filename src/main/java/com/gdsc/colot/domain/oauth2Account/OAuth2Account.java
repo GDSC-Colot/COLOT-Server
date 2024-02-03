@@ -1,6 +1,6 @@
 package com.gdsc.colot.domain.oauth2Account;
 
-import com.gdsc.colot.controller.dto.OAuth2AccountDto;
+import com.gdsc.colot.controller.user.dto.OAuth2AccountDto;
 import com.gdsc.colot.domain.BaseEntity;
 import com.gdsc.colot.domain.user.User;
 import lombok.AccessLevel;
@@ -21,10 +21,15 @@ import java.time.LocalDateTime;
 public class OAuth2Account extends BaseEntity {
 
     private String providerId;
+
     private String provider;
+
     private String token;
+
     private String refreshToken;
+
     private LocalDateTime tokenExpiredAt;
+
     @OneToOne(mappedBy = "social")
     private User user;
 

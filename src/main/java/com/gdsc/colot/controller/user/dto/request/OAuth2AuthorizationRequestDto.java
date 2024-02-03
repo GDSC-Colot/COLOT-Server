@@ -1,4 +1,4 @@
-package com.gdsc.colot.controller.dto.request;
+package com.gdsc.colot.controller.user.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package com.gdsc.colot.controller;
+package com.gdsc.colot.controller.user;
 
 import com.gdsc.colot.common.dto.BaseResponse;
-import com.gdsc.colot.controller.dto.request.SignUpRequestDto;
+import com.gdsc.colot.controller.user.dto.request.SignUpRequestDto;
 import com.gdsc.colot.exception.SuccessCode;
 import com.gdsc.colot.security.UserDetailsImpl;
 import com.gdsc.colot.service.user.UserService;

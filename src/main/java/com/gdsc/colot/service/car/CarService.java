@@ -1,6 +1,6 @@
 package com.gdsc.colot.service.car;
 
-import com.gdsc.colot.controller.dto.request.CarCreateRequestDto;
+import com.gdsc.colot.controller.car.dto.request.CarCreateRequestDto;
 import com.gdsc.colot.domain.car.Car;
 import com.gdsc.colot.domain.car.CarRepository;
 import com.gdsc.colot.domain.user.User;

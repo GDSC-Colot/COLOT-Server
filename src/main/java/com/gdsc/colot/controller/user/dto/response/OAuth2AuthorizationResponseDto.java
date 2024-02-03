@@ -1,4 +1,4 @@
-package com.gdsc.colot.controller.dto.response;
+package com.gdsc.colot.controller.user.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

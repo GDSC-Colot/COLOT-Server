@@ -1,9 +1,9 @@
-package com.gdsc.colot.controller;
+package com.gdsc.colot.controller.user;
 
 import com.gdsc.colot.common.dto.BaseResponse;
-import com.gdsc.colot.controller.dto.request.AuthorizationRequestDto;
-import com.gdsc.colot.controller.dto.response.OAuth2AuthorizationResponseDto;
-import com.gdsc.colot.controller.dto.response.SignInResponseDto;
+import com.gdsc.colot.controller.user.dto.request.AuthorizationRequestDto;
+import com.gdsc.colot.controller.user.dto.response.OAuth2AuthorizationResponseDto;
+import com.gdsc.colot.controller.user.dto.response.SignInResponseDto;
 import com.gdsc.colot.exception.ErrorCode;
 import com.gdsc.colot.exception.SuccessCode;
 import com.gdsc.colot.exception.model.NotFoundException;

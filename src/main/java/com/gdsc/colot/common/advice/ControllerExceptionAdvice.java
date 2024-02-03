@@ -35,21 +35,21 @@ public class ControllerExceptionAdvice {
     protected BaseResponse handleMethodArgumentNotValidException(final MethodArgumentNotValidException e) {
         FieldError fieldError = Objects.requireNonNull(e.getFieldError());
         log.error("Validation error for field {}: {}", fieldError.getField(), fieldError.getDefaultMessage());
-        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_MISSING_EXCEPTION, String.format("%s. (%s)", fieldError.getDefaultMessage(), fieldError.getField()));
+        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_MISSING_EXCEPTION, String.format("%s (%s)", fieldError.getDefaultMessage(), fieldError.getField()));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MissingRequestHeaderException.class)
     protected BaseResponse handleMissingRequestHeaderException(final MissingRequestHeaderException e) {
         log.error("Missing Request Header: {}", e.getMessage(), e);
-        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_HEADER_MISSING_EXCEPTION, String.format("%s. (%s)", ErrorCode.VALIDATION_REQUEST_HEADER_MISSING_EXCEPTION.getMessage(), e.getHeaderName()));
+        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_HEADER_MISSING_EXCEPTION, String.format("%s (%s)", ErrorCode.VALIDATION_REQUEST_HEADER_MISSING_EXCEPTION.getMessage(), e.getHeaderName()));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MissingServletRequestParameterException.class)
     protected BaseResponse handleMissingRequestParameterException(final MissingServletRequestParameterException e) {
         log.error("Missing Request Parameter: {}", e.getMessage(), e);
-        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_PARAMETER_MISSING_EXCEPTION, String.format("%s. (%s)", ErrorCode.VALIDATION_REQUEST_PARAMETER_MISSING_EXCEPTION.getMessage(), e.getParameterName()));
+        return BaseResponse.error(ErrorCode.VALIDATION_REQUEST_PARAMETER_MISSING_EXCEPTION, String.format("%s (%s)", ErrorCode.VALIDATION_REQUEST_PARAMETER_MISSING_EXCEPTION.getMessage(), e.getParameterName()));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

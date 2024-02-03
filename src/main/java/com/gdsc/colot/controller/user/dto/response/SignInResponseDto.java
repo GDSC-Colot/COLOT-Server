@@ -1,4 +1,4 @@
-package com.gdsc.colot.controller.dto.response;
+package com.gdsc.colot.controller.user.dto.response;
 
 import com.gdsc.colot.domain.user.UserType;
 import lombok.AccessLevel;

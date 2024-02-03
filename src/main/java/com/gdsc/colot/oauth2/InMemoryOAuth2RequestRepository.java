@@ -1,6 +1,6 @@
 package com.gdsc.colot.oauth2;
 
-import com.gdsc.colot.controller.dto.request.OAuth2AuthorizationRequestDto;
+import com.gdsc.colot.controller.user.dto.request.OAuth2AuthorizationRequestDto;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

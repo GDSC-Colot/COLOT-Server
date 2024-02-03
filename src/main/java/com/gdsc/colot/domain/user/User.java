@@ -1,8 +1,10 @@
 package com.gdsc.colot.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gdsc.colot.domain.BaseEntity;
 import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
 import com.gdsc.colot.domain.car.Car;
+import com.gdsc.colot.domain.parkinglot.ParkingLot;
 import com.gdsc.colot.security.AuthorityType;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -49,6 +51,10 @@ public class User extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "REP_CAR_ID")
     private Car repCar;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ParkingLot> parkingLotList;
 
     @Builder
     public User(String name, String email, String username, String password, UserType type) {

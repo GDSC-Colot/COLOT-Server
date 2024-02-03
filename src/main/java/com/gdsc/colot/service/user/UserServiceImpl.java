@@ -1,6 +1,6 @@
 package com.gdsc.colot.service.user;
 
-import com.gdsc.colot.controller.dto.request.SignUpRequestDto;
+import com.gdsc.colot.controller.user.dto.request.SignUpRequestDto;
 import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
 import com.gdsc.colot.domain.user.User;
 import com.gdsc.colot.domain.user.UserType;
