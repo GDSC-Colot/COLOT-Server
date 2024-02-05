@@ -22,6 +22,7 @@ public enum ErrorCode {
     VALIDATION_IMAGE_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "지원하지 않는 이미지 파일 형식입니다"),
     DUPLICATE_EMAIL_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 사용중인 이메일입니다."),
     DUPLICATE_CAR_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 등록된 차량 번호입니다."),
+    DUPLICATE_CAR_STOPPER_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 등록된 카스토퍼입니다."),
     OAUTH2_NOT_SUPPORT_EXCEPTION(HttpStatus.BAD_REQUEST, "지원하지 않는 소셜 로그인입니다."),
     OAUTH2_USERINFO_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "소셜 유저 정보 요청 실패"),
     OAUTH2_TOKEN_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 요청 실패"),

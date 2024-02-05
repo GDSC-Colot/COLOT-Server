@@ -23,6 +23,7 @@ public enum SuccessCode {
     SIGNOUT_SUCCESS(HttpStatus.CREATED, "로그아웃이 완료됐습니다."),
     CAR_CREATED_SUCCESS(HttpStatus.CREATED, "차량 등록에 성공했습니다"),
     PARKING_LOT_CREATED_SUCCESS(HttpStatus.CREATED, "주차장 등록에 성공했습니다"),
+    CAR_STOPPER_CREATED_SUCCESS(HttpStatus.CREATED, "카스토퍼 등록에 성공했습니다"),
 
     /**
      * 204 NO_CONTENT
