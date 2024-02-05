@@ -1,6 +1,6 @@
 package com.gdsc.colot.service.car;
 
-import com.gdsc.colot.controller.car.dto.request.CarCreateRequestDto;
+import com.gdsc.colot.controller.car.dto.request.CarRequestDto;
 import com.gdsc.colot.domain.car.Car;
 import com.gdsc.colot.domain.car.CarRepository;
 import com.gdsc.colot.domain.user.User;
@@ -20,7 +20,7 @@ public class CarService {
     private final CarRepository carRepository;
 
     @Transactional
-    public void createCar(CarCreateRequestDto requestDto, String email) {
+    public void createCar(CarRequestDto requestDto, String email) {
         checkDuplicateCar(requestDto.getPlateNum());
 
         User user = userRepository.findByEmail(email)

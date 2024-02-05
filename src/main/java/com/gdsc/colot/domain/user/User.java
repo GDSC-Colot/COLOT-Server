@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gdsc.colot.domain.BaseEntity;
 import com.gdsc.colot.domain.oauth2Account.OAuth2Account;
 import com.gdsc.colot.domain.car.Car;
-import com.gdsc.colot.domain.parkinglot.ParkingLot;
+import com.gdsc.colot.domain.parkingLot.ParkingLot;
 import com.gdsc.colot.security.AuthorityType;
 import lombok.AccessLevel;
 import lombok.Builder;

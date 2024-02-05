@@ -1,12 +1,15 @@
-package com.gdsc.colot.domain.parkinglot;
+package com.gdsc.colot.domain.parkingLot;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gdsc.colot.domain.BaseEntity;
+import com.gdsc.colot.domain.carStopper.CarStopper;
 import com.gdsc.colot.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -44,6 +47,10 @@ public class ParkingLot extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "parking_lot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CarStopper> carStopperList;
 
     @Builder
     public ParkingLot(String address, Double latitude, Double longitude, String name, String description, Boolean type, Boolean operationMethod, String image, Long capacity, User user) {

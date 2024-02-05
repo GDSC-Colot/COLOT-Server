@@ -1,4 +1,4 @@
-package com.gdsc.colot.controller.parkinglot.dto;
+package com.gdsc.colot.controller.parkinglot.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

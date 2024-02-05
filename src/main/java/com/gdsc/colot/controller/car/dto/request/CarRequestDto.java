@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CarCreateRequestDto {
+public class CarRequestDto {
 
     @NotBlank(message = "Please enter your vehicle number")
     private String plateNum;

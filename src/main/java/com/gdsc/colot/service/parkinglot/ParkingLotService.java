@@ -1,8 +1,8 @@
 package com.gdsc.colot.service.parkinglot;
 
-import com.gdsc.colot.controller.parkinglot.dto.ParkingLotRequestDto;
-import com.gdsc.colot.domain.parkinglot.ParkingLot;
-import com.gdsc.colot.domain.parkinglot.ParkingLotRepository;
+import com.gdsc.colot.controller.parkinglot.dto.request.ParkingLotRequestDto;
+import com.gdsc.colot.domain.parkingLot.ParkingLot;
+import com.gdsc.colot.domain.parkingLot.ParkingLotRepository;
 import com.gdsc.colot.domain.user.User;
 import com.gdsc.colot.domain.user.UserRepository;
 import com.gdsc.colot.exception.ErrorCode;
@@ -25,7 +25,6 @@ public class ParkingLotService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_USER_EXCEPTION, ErrorCode.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
-        System.out.println(requestDto.getType());
         String imageUrl = s3Service.uploadImage(requestDto.getImage(), "parking-lot");
 
         ParkingLot parkingLot = ParkingLot.builder()

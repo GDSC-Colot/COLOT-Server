@@ -1,7 +1,7 @@
 package com.gdsc.colot.controller.parkinglot;
 
 import com.gdsc.colot.common.dto.BaseResponse;
-import com.gdsc.colot.controller.parkinglot.dto.ParkingLotRequestDto;
+import com.gdsc.colot.controller.parkinglot.dto.request.ParkingLotRequestDto;
 import com.gdsc.colot.exception.SuccessCode;
 import com.gdsc.colot.security.UserDetailsImpl;
 import com.gdsc.colot.service.parkinglot.ParkingLotService;

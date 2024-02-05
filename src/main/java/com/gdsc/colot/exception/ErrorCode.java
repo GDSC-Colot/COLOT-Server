@@ -27,7 +27,6 @@ public enum ErrorCode {
     OAUTH2_TOKEN_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 요청 실패"),
     OAUTH2_REFRESH_TOKEN_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 갱신 실패"),
     OAUTH2_REDIRECT_CALLBACK_EXCEPTION(HttpStatus.BAD_REQUEST, "리다이렉트 도중 오류 발생"),
-    FILE_UPLOAD_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다"),
 
     /**
      * 401 UNAUTHORIZED
@@ -47,11 +46,13 @@ public enum ErrorCode {
      * */
     NOT_FOUND_USER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 유저입니다."),
     NOT_FOUND_IMAGE_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 이미지입니다."),
+    NOT_FOUND_PARKING_LOT_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 주차장입니다"),
 
     /**
      * 500 INTERNAL SERVER ERROR
      */
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "알 수 없는 서버 에러가 발생했습니다"),
+    FILE_UPLOAD_FAILED(HttpStatus.INTERNAL_SERVER_ERROR, "파일 업로드에 실패했습니다")
     ;
 
     private final HttpStatus httpStatus;
