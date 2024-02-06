@@ -28,6 +28,7 @@ public enum ErrorCode {
     OAUTH2_TOKEN_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 요청 실패"),
     OAUTH2_REFRESH_TOKEN_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 갱신 실패"),
     OAUTH2_REDIRECT_CALLBACK_EXCEPTION(HttpStatus.BAD_REQUEST, "리다이렉트 도중 오류 발생"),
+    PARKING_STATUS_INVALID(HttpStatus.BAD_REQUEST, "주차 상태값을 잘못 입력하였습니다."),
 
     /**
      * 401 UNAUTHORIZED
@@ -47,7 +48,10 @@ public enum ErrorCode {
      * */
     NOT_FOUND_USER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 유저입니다."),
     NOT_FOUND_IMAGE_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 이미지입니다."),
-    NOT_FOUND_PARKING_LOT_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 주차장입니다"),
+    NOT_FOUND_PARKING_LOT_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 주차장입니다."),
+    NOT_FOUND_CAR_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 차량번호입니다."),
+    NOT_FOUND_CAR_STOPPER_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 카스토퍼입니다."),
+    NOT_FOUND_PARKING_EXCEPTION(HttpStatus.NOT_FOUND, "존재하지 않는 주차 내역입니다."),
 
     /**
      * 500 INTERNAL SERVER ERROR

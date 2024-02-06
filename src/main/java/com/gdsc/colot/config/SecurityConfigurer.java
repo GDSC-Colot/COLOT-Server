@@ -59,7 +59,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 ).permitAll()
                 .antMatchers("/api/v1/oauth2/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/v1/authorize","/api/v1/users").anonymous()
-                .anyRequest().authenticated().and() // 나머지 URI는 인증 필요
+                .anyRequest().permitAll().and() // 나머지 URI는 인증 필요
                 .exceptionHandling()
                 .accessDeniedHandler((request, response, accessDeniedException) -> {
                     log.error("403: {}", accessDeniedException.getMessage(), accessDeniedException);
