@@ -17,6 +17,7 @@ public enum SuccessCode {
     LOGIN_SUCCESS(HttpStatus.OK, "로그인에 성공했습니다."),
     PARKING_IN_SUCCESS(HttpStatus.OK, "주차를 성공적으로 시작했습니다."),
     PARKING_OUT_SUCCESS(HttpStatus.OK, "주차를 성공적으로 종료했습니다."),
+    PARKING_LOT_GET_SUCCESS(HttpStatus.OK, "주차장 조회를 완료하였습니다."),
 
     /**
      * 201 CREATED

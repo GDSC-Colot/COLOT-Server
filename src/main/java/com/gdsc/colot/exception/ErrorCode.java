@@ -29,6 +29,7 @@ public enum ErrorCode {
     OAUTH2_REDIRECT_CALLBACK_EXCEPTION(HttpStatus.BAD_REQUEST, "리다이렉트 도중 오류 발생"),
     PARKING_STATUS_INVALID(HttpStatus.BAD_REQUEST, "주차 상태값을 잘못 입력하였습니다."),
     ALREADY_CAR_PARKED_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 주차중인 구역입니다"),
+    MAP_LEVEL_INVALID_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 축척 단계입니다"),
 
     /**
      * 401 UNAUTHORIZED

@@ -2,6 +2,7 @@ package com.gdsc.colot.controller.parkinglot;
 
 import com.gdsc.colot.common.dto.BaseResponse;
 import com.gdsc.colot.controller.parkinglot.dto.request.ParkingLotRequestDto;
+import com.gdsc.colot.controller.parkinglot.dto.response.ParkingLotResponseDto;
 import com.gdsc.colot.exception.SuccessCode;
 import com.gdsc.colot.security.UserDetailsImpl;
 import com.gdsc.colot.service.parkinglot.ParkingLotService;
@@ -12,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -52,6 +55,18 @@ public class ParkingLotController {
                 loginUser.getEmail()
         );
         return BaseResponse.success(SuccessCode.PARKING_LOT_CREATED_SUCCESS);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public BaseResponse<List<ParkingLotResponseDto>> searchParkingLot(
+            @RequestParam("level") Long level,
+            @RequestParam("min") Long min,
+            @RequestParam("lat") Double lat,
+            @RequestParam("lng") Double lng
+    ) {
+        final List<ParkingLotResponseDto> data = parkingLotService.searchParkingLot(level, min, lat, lng);
+        return BaseResponse.success(SuccessCode.PARKING_LOT_GET_SUCCESS, data);
     }
 
 }
