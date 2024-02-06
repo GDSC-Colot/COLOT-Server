@@ -17,11 +17,12 @@ public class ParkingLotRequestDto {
     private Double latitude;
     private Double longitude;
     private Long capacity;
+    private Long chargePerMin;
     private String description;
     private MultipartFile image;
 
     @Builder
-    public ParkingLotRequestDto(Boolean type, Boolean operationMethod, String address, String name, Double latitude, Double longitude, Long capacity, String description, MultipartFile image) {
+    public ParkingLotRequestDto(Boolean type, Boolean operationMethod, String address, String name, Double latitude, Double longitude, Long capacity, Long chargePerMin, String description, MultipartFile image) {
         this.type = type;
         this.operationMethod = operationMethod;
         this.address = address;
@@ -29,6 +30,7 @@ public class ParkingLotRequestDto {
         this.latitude = latitude;
         this.longitude = longitude;
         this.capacity = capacity;
+        this.chargePerMin = chargePerMin;
         this.description = description;
         this.image = image;
     }

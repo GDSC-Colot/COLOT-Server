@@ -32,6 +32,7 @@ public class ParkingLotController {
             @RequestParam("latitude") Double latitude,
             @RequestParam("longitude") Double longitude,
             @RequestParam("capacity") Long capacity,
+            @RequestParam("chargePerMin") Long chargePerMin,
             @RequestParam(name = "description", required = false, defaultValue = "") String description,
             @RequestPart("image") MultipartFile image
     ) {
@@ -45,6 +46,7 @@ public class ParkingLotController {
                         .longitude(longitude)
                         .capacity(capacity)
                         .description(description)
+                        .chargePerMin(chargePerMin)
                         .image(image)
                         .build(),
                 loginUser.getEmail()

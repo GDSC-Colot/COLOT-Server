@@ -44,6 +44,9 @@ public class ParkingLot extends BaseEntity {
     @Column(nullable = false)
     private Long capacity;
 
+    @Column(nullable = false)
+    private Long chargePerMin;
+
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private User user;
@@ -53,7 +56,7 @@ public class ParkingLot extends BaseEntity {
     private List<CarStopper> carStopperList;
 
     @Builder
-    public ParkingLot(String address, Double latitude, Double longitude, String name, String description, Boolean type, Boolean operationMethod, String image, Long capacity, User user) {
+    public ParkingLot(String address, Double latitude, Double longitude, String name, String description, Boolean type, Boolean operationMethod, String image, Long capacity, Long chargePerMin, User user) {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -63,6 +66,7 @@ public class ParkingLot extends BaseEntity {
         this.operationMethod = operationMethod;
         this.image = image;
         this.capacity = capacity;
+        this.chargePerMin = chargePerMin;
         this.user = user;
     }
 }

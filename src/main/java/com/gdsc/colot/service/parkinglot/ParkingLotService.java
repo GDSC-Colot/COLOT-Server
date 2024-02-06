@@ -37,6 +37,7 @@ public class ParkingLotService {
                 .operationMethod(requestDto.getOperationMethod())
                 .image(imageUrl)
                 .capacity(requestDto.getCapacity())
+                .chargePerMin(requestDto.getChargePerMin())
                 .user(user)
                 .build();
 
