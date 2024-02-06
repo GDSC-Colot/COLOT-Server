@@ -49,7 +49,7 @@ public class ParkingLot extends BaseEntity {
     private User user;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "parking_lot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "parkingLot", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CarStopper> carStopperList;
 
     @Builder
