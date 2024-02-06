@@ -18,7 +18,6 @@ public enum ErrorCode {
     VALIDATION_REQUEST_PARAMETER_MISSING_EXCEPTION(HttpStatus.BAD_REQUEST, "요청 파라미터값이 입력되지 않았습니다."),
     REQUEST_METHOD_VALIDATION_EXCEPTION(HttpStatus.BAD_REQUEST, "요청 메소드가 잘못됐습니다."),
     MAX_UPLOAD_SIZE_EXCEED_EXCEPTION(HttpStatus.PAYLOAD_TOO_LARGE, "파일 용량 초과"),
-    ALREADY_MISSION_COMPLETE(HttpStatus.BAD_REQUEST, "이미 미션을 수행하였습니다"),
     VALIDATION_IMAGE_REQUEST_FAILED(HttpStatus.BAD_REQUEST, "지원하지 않는 이미지 파일 형식입니다"),
     DUPLICATE_EMAIL_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 사용중인 이메일입니다."),
     DUPLICATE_CAR_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 등록된 차량 번호입니다."),
@@ -29,6 +28,7 @@ public enum ErrorCode {
     OAUTH2_REFRESH_TOKEN_FAILED(HttpStatus.BAD_REQUEST, "소셜 토큰 갱신 실패"),
     OAUTH2_REDIRECT_CALLBACK_EXCEPTION(HttpStatus.BAD_REQUEST, "리다이렉트 도중 오류 발생"),
     PARKING_STATUS_INVALID(HttpStatus.BAD_REQUEST, "주차 상태값을 잘못 입력하였습니다."),
+    ALREADY_CAR_PARKED_EXCEPTION(HttpStatus.BAD_REQUEST, "이미 주차중인 구역입니다"),
 
     /**
      * 401 UNAUTHORIZED

@@ -35,6 +35,10 @@ public class ParkingService {
             CarStopper carStopper = carStopperRepository.findBySerialNum(requestDto.getCarStopperId())
                     .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND_CAR_STOPPER_EXCEPTION, ErrorCode.NOT_FOUND_CAR_STOPPER_EXCEPTION.getMessage()));
 
+            if (parkingRepository.existsByParkingStatusAndCarStopper(ParkingStatus.IN, carStopper)) {
+                throw new BadRequestException(ErrorCode.ALREADY_CAR_PARKED_EXCEPTION, ErrorCode.ALREADY_CAR_PARKED_EXCEPTION.getMessage());
+            }
+
             Parking parking = Parking.builder()
                     .startTime(LocalDateTime.now())
                     .parkingStatus(ParkingStatus.IN)
